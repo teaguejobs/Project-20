@@ -186,16 +186,19 @@ Download php-todo from repository
 The project below will challenge you a little bit, but the experience there is very valuable for future projects.
 
 **Part 1**
+
 - Write a Dockerfile for the TODO app
 - Run both database and app on your laptop Docker Engine
 - Access the application from the browser
 
 **Part 2**
+
 - Create an account in Docker Hub
 - Create a new Docker Hub repository
 - Push the docker images from your PC to the repository
 
 **Part 3**
+
 - Write a Jenkinsfile that will simulate a Docker Build and a Docker - Push to the registry
 - Connect your repo to Jenkins
 - Create a multi-branch pipeline
@@ -203,4 +206,38 @@ The project below will challenge you a little bit, but the experience there is v
 - Ensure that the tagged images from your Jenkinsfile have a prefix that suggests which branch the image was pushed from. For example, feature-0.0.1.
 - Verify that the images pushed from the CI can be found at the registry.
 
+In your VPS server terminal, do this to add your jenkins user to the docker group:
+
+`sudo usermod -aG docker jenkins`
+![alt text](./images/blue%20ocean.PNG)
+
+![Alt text](./images/php.PNG)
+
+![alt text](./images/simulate.PNG)
+
+**Deployment with Docker Compose**
+
+In this section, we will refactor the Tooling app POC so that we can leverage the power of Docker Compose.
+
+1. First, install Docker Compose on your workstation
+2. Create a file, name it tooling.yaml
+3. Begin to write the Docker Compose definitions with YAML syntax. The YAML file is used for defining services, networks, and volumes:
+
+Let us fill up the entire file and test our application:
+
+![alt text](./images/docker%20compose%201.PNG)
+
+Run the command to start the containers
+
+`docker-compose -f tooling.yaml up -d`
+
+Verify that the compose is in the running status:
+
+`docker-compose ls`
+
+![alt text](./images/docker%20compose%202.PNG)
+
+**Practice Task №2 – Complete Continous Integration With A Test Stage**
+
+![alt text](./images/test1.PNG)
 
